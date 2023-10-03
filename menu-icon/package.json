@@ -1,0 +1,23 @@
+{
+  "name": "menu-icon-poc",
+  "version": "1.0.0",
+  "description": "poc for a web component",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surlacolline/poc-webcomponents.git"
+  },
+  "author": "Elise",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surlacolline/poc-webcomponents/issues"
+  },
+  "homepage": "https://github.com/surlacolline/poc-webcomponents#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
