@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import r2wc from "@r2wc/react-to-web-component";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const WebGreeting = r2wc(App)
+
+customElements.define("web-greeting", WebGreeting)
 root.render(
   <React.StrictMode>
     <App />

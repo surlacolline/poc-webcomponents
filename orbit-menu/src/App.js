@@ -1,5 +1,4 @@
 import './App.css';
-import r2wc from "@r2wc/react-to-web-component";
 import { IconButton } from "@sharegate/orbit-ui";
 import { VerticalDotsMajorIcon } from "@sharegate/orbit-ui";
 import { PlaceholderMajorIcon } from "@sharegate/orbit-ui";
@@ -40,9 +39,5 @@ function App() {
 
   );
 }
-
- const WebGreeting = r2wc(App)
-
- customElements.define("web-greeting", WebGreeting)
 
 export default App;
