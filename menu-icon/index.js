@@ -37,3 +37,5 @@ class MenuIcon extends HTMLElement {
 
   // Définissez votre composant personnalisé
   customElements.define('menu-icon', MenuIcon);
+
+  customElements.define('menu-icon2', MenuIcon);
