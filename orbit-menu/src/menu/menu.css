@@ -1,4 +1,4 @@
-.wc button{
+.wc button {
     border: none;
     background: none;
     cursor: pointer;
@@ -12,14 +12,14 @@
     background: #abb2bb;
 }
 
-.wc-menu-item{
+.wc-menu-item {
     display: flex;
-    gap:20px;
+    gap: 20px;
 }
 
-.wc-menu-section{
+.wc-menu-section {
     display: flex;
-    gap:20px;
+    gap: 20px;
     flex-direction: column;
 }
 

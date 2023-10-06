@@ -9,7 +9,7 @@ const WebGreeting = r2wc(App);
 
 customElements.define("web-greeting", WebGreeting);
 
-const MenuWC = r2wc(Menu, { shadow: "open", props: { menuItem: "json", greeting: "string", bigGreeting: "string" } });
+const MenuWC = r2wc(Menu, { props: { menuItems: "json", greeting: "string" } });
 
 customElements.define("menu-wc", MenuWC);
 

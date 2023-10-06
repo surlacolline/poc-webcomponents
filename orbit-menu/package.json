@@ -1,6 +1,6 @@
 {
   "name": "orbit-menu",
-  "version": "0.1.25",
+  "version": "0.1.28",
   "private": false,
   "main": "dist/bundle.js",
   "dependencies": {
