@@ -1,4 +1,4 @@
-button{
+.wc button{
     border: none;
     background: none;
     cursor: pointer;
@@ -6,23 +6,24 @@ button{
     padding: 0;
     border-radius: 3px;
 }
-button:hover,
-button:focus {
+
+.wc button:hover,
+.wc button:focus {
     background: #abb2bb;
 }
 
-.menu-item{
+.wc-menu-item{
     display: flex;
     gap:20px;
 }
 
-.menu-section{
+.wc-menu-section{
     display: flex;
     gap:20px;
     flex-direction: column;
 }
 
-.menu {
+.wc-menu {
     box-shadow: 0 0 0 1px #e8e8e8, 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     width: fit-content;

@@ -3,11 +3,11 @@ import './menu.css';
 import { IconButton } from "@sharegate/orbit-ui";
 import { VerticalDotsMajorIcon } from "@sharegate/orbit-ui";
 
-const MenuIcon = ({ menuItem, greeting, bigGreeting }) => {
+const MenuIcon = ({ menuItems, greeting }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [focusedItem, setFocusedItem] = useState(null);
   const menuRef = useRef(null);
-  const menuItems = menuItem ?? [{
+  const menuItemsOrDefault = menuItems ?? [{
     sectionTitle: 'PRODUCTS',
     items: [
       {
@@ -51,7 +51,7 @@ const MenuIcon = ({ menuItem, greeting, bigGreeting }) => {
   };
 
   return (
-    <div>
+    <div className='wc'>
       <IconButton aria-label="View tasks"
         className={`icon ${menuOpen ? 'menu-open' : ''}`}
         onClick={toggleMenu}
@@ -62,31 +62,29 @@ const MenuIcon = ({ menuItem, greeting, bigGreeting }) => {
           }
         }}
         variant={menuOpen ? "primary" : "secondary"}>
-        <VerticalDotsMajorIcon />{greeting}
+        <><VerticalDotsMajorIcon />{greeting}</>
       </IconButton>
       {menuOpen && (
-        <div className="menu">
-          {console.log(greeting)}
-          {console.log(bigGreeting)}
-          {menuItems.map((item, index) => (
+        <div className="wc-menu">
+          {menuItemsOrDefault.map((item, index) => (
             <div
-              className={`menu-section ${focusedItem === index ? 'focused' : ''}`}
+              className={`wc-menu-section ${focusedItem === index ? 'focused' : ''}`}
               key={index}
             >
-              <div className="menu-section-label">{item.sectionTitle + greeting + bigGreeting}</div>
+              <div className="wc-menu-section-label">{item.sectionTitle}</div>
               {item.items.map((menuItem, itemIndex) => (
                 <button
-                  className="menu-item"
+                  className="wc-menu-item"
                   key={itemIndex}
                   onFocus={() => setFocusedItem(index)}
                   onBlur={() => setFocusedItem(null)}
                   onClick={() => handleItemClick(menuItem)}
                   onKeyDown={(e) => handleKeyDown(e, menuItem)}
                 >
-                  <div className="menu-item-avatar">{menuItem.icon}</div>
-                  <div className="menu-item-info">
-                    <div className="menu-item-title">{menuItem.title}</div>
-                    <div className="menu-item-description">
+                  <div className="wc-menu-item-avatar">{menuItem.icon}</div>
+                  <div className="wc-menu-item-info">
+                    <div className="wc-menu-item-title">{menuItem.title}</div>
+                    <div className="wc-menu-item-description">
                       {menuItem.description}
                     </div>
                   </div>
