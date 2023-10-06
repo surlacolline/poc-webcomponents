@@ -2,12 +2,9 @@ import React from 'react';
 
 const TestSimple = () => {
 
-
-
-
   return (
     <div>
-               TEST SIMPLE
+      TEST SIMPLE
     </div>
   );
 };

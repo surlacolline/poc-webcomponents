@@ -14,7 +14,6 @@ function App() {
   createThemeVars([ShareGateTheme]);
 
   return (
-
       <ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
         <MenuTrigger>
           <IconButton aria-label="View tasks"

@@ -3,29 +3,13 @@ import './menu.css';
 import { IconButton } from "@sharegate/orbit-ui";
 import { VerticalDotsMajorIcon } from "@sharegate/orbit-ui";
 
-const MenuIcon = ({menuItem, greeting, bigGreeting}) => {
+const MenuIcon = ({ menuItem, greeting, bigGreeting }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [focusedItem, setFocusedItem] = useState(null);
   const menuRef = useRef(null);
-   const menuItems = menuItem ?? [{
+  const menuItems = menuItem ?? [{
     sectionTitle: 'PRODUCTS',
-    items:[
-    {
-      icon: "Icon OV", // You can replace this with an actual icon component
-      title: "Officevibe",
-      description: "Item Description",
-      isNew: false,
-      isExternal: false,
-      redirectUrl: "https://www.officevibe.com/",
-    },
-    {
-        icon: "Icon OV", // You can replace this with an actual icon component
-        title: "Officevibe",
-        description: "Item Description",
-        isNew: false,
-        isExternal: false,
-        redirectUrl: "https://www.officevibe.com/",
-      },
+    items: [
       {
         icon: "Icon OV", // You can replace this with an actual icon component
         title: "Officevibe",
@@ -34,35 +18,20 @@ const MenuIcon = ({menuItem, greeting, bigGreeting}) => {
         isExternal: false,
         redirectUrl: "https://www.officevibe.com/",
       }
-]},{
-sectionTitle: 'DISCOVER',
-items:[
-{
-  icon: "Icon OV", // You can replace this with an actual icon component
-  title: "Officevibe",
-  description: "Item Description",
-  isNew: false,
-  isExternal: false,
-  redirectUrl: "https://www.officevibe.com/",
-},
-{
-    icon: "Icon OV", // You can replace this with an actual icon component
-    title: "Officevibe",
-    description: "Item Description",
-    isNew: false,
-    isExternal: false,
-    redirectUrl: "https://www.officevibe.com/",
-  },
-  {
-    icon: "Icon OV", // You can replace this with an actual icon component
-    title: "Officevibe",
-    description: "Item Description",
-    isNew: false,
-    isExternal: false,
-    redirectUrl: "https://www.officevibe.com/",
-  }
-]}];
-
+    ]
+  }, {
+    sectionTitle: 'DISCOVER',
+    items: [
+      {
+        icon: "Icon OV", // You can replace this with an actual icon component
+        title: "Officevibe",
+        description: "Item Description",
+        isNew: false,
+        isExternal: false,
+        redirectUrl: "https://www.officevibe.com/",
+      }
+    ]
+  }];
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -83,22 +52,22 @@ items:[
 
   return (
     <div>
-                  <IconButton aria-label="View tasks"
-                          className={`icon ${menuOpen ? 'menu-open' : ''}`}
-                          onClick={toggleMenu}
-                          ref={menuRef}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Escape') {
-                              setMenuOpen(false);
-                            }
-                          }}
-                variant={menuOpen ? "primary" : "secondary"}>
-            <VerticalDotsMajorIcon />
-          </IconButton>
+      <IconButton aria-label="View tasks"
+        className={`icon ${menuOpen ? 'menu-open' : ''}`}
+        onClick={toggleMenu}
+        ref={menuRef}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') {
+            setMenuOpen(false);
+          }
+        }}
+        variant={menuOpen ? "primary" : "secondary"}>
+        <VerticalDotsMajorIcon />{greeting}
+      </IconButton>
       {menuOpen && (
         <div className="menu">
-            {console.log(greeting)}
-            {console.log(bigGreeting)}
+          {console.log(greeting)}
+          {console.log(bigGreeting)}
           {menuItems.map((item, index) => (
             <div
               className={`menu-section ${focusedItem === index ? 'focused' : ''}`}
