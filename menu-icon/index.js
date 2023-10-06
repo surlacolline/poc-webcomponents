@@ -39,3 +39,4 @@ class MenuIcon extends HTMLElement {
   customElements.define('menu-icon', MenuIcon);
 
   customElements.define('menu-icon2', MenuIcon);
+

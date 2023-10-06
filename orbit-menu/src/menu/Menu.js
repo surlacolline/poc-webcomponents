@@ -3,7 +3,7 @@ import './menu.css';
 import { IconButton } from "@sharegate/orbit-ui";
 import { VerticalDotsMajorIcon } from "@sharegate/orbit-ui";
 
-const MenuIcon = ({menuItem}) => {
+const MenuIcon = ({menuItem, greeting, bigGreeting}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [focusedItem, setFocusedItem] = useState(null);
   const menuRef = useRef(null);
@@ -97,13 +97,14 @@ items:[
           </IconButton>
       {menuOpen && (
         <div className="menu">
-            {console.log(menuItems)}
+            {console.log(greeting)}
+            {console.log(bigGreeting)}
           {menuItems.map((item, index) => (
             <div
               className={`menu-section ${focusedItem === index ? 'focused' : ''}`}
               key={index}
             >
-              <div className="menu-section-label">{item.sectionTitle}</div>
+              <div className="menu-section-label">{item.sectionTitle + greeting + bigGreeting}</div>
               {item.items.map((menuItem, itemIndex) => (
                 <button
                   className="menu-item"
