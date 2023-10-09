@@ -5,10 +5,36 @@ import { ShareGateTheme, ThemeProvider } from "@sharegate/orbit-ui";
 import { VerticalDotsMajorIcon } from "@sharegate/orbit-ui";
 import { Text } from "@sharegate/orbit-ui";
 import { PlaceholderMajorIcon } from "@sharegate/orbit-ui";
-import { MenuTrigger, createThemeVars, Menu, Item } from "@sharegate/orbit-ui";
+import { MenuTrigger, Section, createThemeVars, Menu, Item } from "@sharegate/orbit-ui";
 
-const MenuOrbit = ({ menuItems, funcProp, greeting }) => {
+const MenuOrbit = ({ menuItems, func, label }) => {
     createThemeVars([ShareGateTheme]);
+    const menuItemsInternal = menuItems ?? [{
+        sectionTitle: "PRODUCTS",
+        items: [
+            {
+                icon: "Icon OV",
+                title: " ",
+                description: "Engage, recognize and manage performance",
+                isNew: false,
+                isExternal: false,
+                redirectUrl: "https://www.officevibe.com/"
+            }
+        ]
+    }, {
+        sectionTitle: "DISCOVER",
+        items: [
+            {
+                icon: "Icon OV",
+                title: "LMS",
+                description: "Item Description",
+                isNew: true,
+                isExternal: false,
+                redirectUrl: "https://www.officevibe.com/"
+            }
+        ]
+    }];
+
     return (
         <>
             <ThemeProvider theme={ShareGateTheme} colorScheme="light">
@@ -17,21 +43,17 @@ const MenuOrbit = ({ menuItems, funcProp, greeting }) => {
                         <VerticalDotsMajorIcon />
                     </IconButton>
                     <Menu>
-                        <Item key="launch">
-                            <PlaceholderMajorIcon />
-                            <Text>Launch2... {greeting}</Text>
-                            <Text slot="description">Launch...</Text>
-                        </Item>
-                        <Item key="eject">
-                            <PlaceholderMajorIcon />
-                            <Text>Eject...</Text>
-                            <Text slot="description">Eject...</Text>
-                        </Item>
-                        <Item key="land">
-                            <PlaceholderMajorIcon />
-                            <Text>Land...</Text>
-                            <Text slot="description">Land on Of Course I Still Love You</Text>
-                        </Item>
+                        {menuItemsInternal.map((section, index) => (
+                               <Section key ={"section"+index}title={section.sectionTitle}>
+                               {section.items.map((menuItem, menuItemIndex) => (
+                                   <Item key={"menuitem-" + menuItemIndex} onClick={() => func(menuItem.title)}>
+                                       <PlaceholderMajorIcon />
+                                       <Text>{menuItem.title + " - " + label}</Text>
+                                       <Text slot="description">{menuItem.description}</Text>
+                                   </Item>
+                               ))}
+                           </Section>
+                        ))}
                     </Menu>
                 </MenuTrigger>
             </ThemeProvider>

@@ -6,6 +6,6 @@ const MenuWC = r2wc(Menu, { props: { menuItems: "json", greeting: "string" } });
 
 customElements.define("menu-wc", MenuWC);
 
-const MenuOrbitWC = r2wc(MenuOrbit, {props: { menuItems: "json",  funcProp: "function", label: "string" }});
+const MenuOrbitWC = r2wc(MenuOrbit, {props: { menuItems: "json", func: "function", label: "string" }});
 
 customElements.define("menuorbit-wc", MenuOrbitWC) ;
