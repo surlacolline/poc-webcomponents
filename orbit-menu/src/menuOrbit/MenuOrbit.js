@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../index.css';
 import { IconButton } from "@sharegate/orbit-ui";
 import { ShareGateTheme, ThemeProvider } from "@sharegate/orbit-ui";
@@ -6,8 +6,11 @@ import { VerticalDotsMajorIcon } from "@sharegate/orbit-ui";
 import { Text } from "@sharegate/orbit-ui";
 import { PlaceholderMajorIcon } from "@sharegate/orbit-ui";
 import { MenuTrigger, Section, createThemeVars, Menu, Item } from "@sharegate/orbit-ui";
+import ApiClient from '../infra/apiClient.js';
 
 const MenuOrbit = ({ menuItems, func, label }) => {
+
+
     createThemeVars([ShareGateTheme]);
     const menuItemsInternal = menuItems ?? [{
         sectionTitle: "PRODUCTS",
@@ -38,21 +41,25 @@ const MenuOrbit = ({ menuItems, func, label }) => {
     return (
         <>
             <ThemeProvider theme={ShareGateTheme} colorScheme="light">
+            <p>text from react before slot1</p>
+            <slot />
+            <p>text from react after slot</p>
                 <MenuTrigger>
                     <IconButton variant="secondary" aria-label="View tasks">
                         <VerticalDotsMajorIcon />
                     </IconButton>
                     <Menu>
+
                         {menuItemsInternal.map((section, index) => (
-                               <Section key ={"section"+index}title={section.sectionTitle}>
-                               {section.items.map((menuItem, menuItemIndex) => (
-                                   <Item key={"menuitem-" + menuItemIndex} onClick={() => func(menuItem.title)}>
-                                       <PlaceholderMajorIcon />
-                                       <Text>{menuItem.title + " - " + label}</Text>
-                                       <Text slot="description">{menuItem.description}</Text>
-                                   </Item>
-                               ))}
-                           </Section>
+                            <Section key={"section" + index} title={section.sectionTitle}>
+                                {section.items.map((menuItem, menuItemIndex) => (
+                                    <Item key={"menuitem-" + menuItemIndex} onClick={() => func(menuItem.title)}>
+                                        <PlaceholderMajorIcon />
+                                        <Text>{menuItem.title + " - " + label}</Text>
+                                        <Text slot="description">{menuItem.description}</Text>
+                                    </Item>
+                                ))}
+                            </Section>
                         ))}
                     </Menu>
                 </MenuTrigger>
